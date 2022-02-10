@@ -28,6 +28,21 @@ class CategoriasServices {
       throw new Error("Error al actualizar una categoria");
     }
   }
+
+  async deleteCategoria(categoryId: string) {
+    try {
+      const deleteResult = await categoryModel.findByIdAndDelete(categoryId);
+
+      if (deleteResult == undefined || deleteResult == null) {
+        throw new Error(`No se pudo eliminar la categoria con id ${categoryId}. Posiblemente ya se ha eliminado`);
+      }
+
+      return deleteResult;
+    } catch (error) {
+      console.error(error);
+      throw new Error("Error al eliminar una categoria");
+    }
+  }
 }
 
 export default CategoriasServices;
