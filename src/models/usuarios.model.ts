@@ -35,4 +35,4 @@ const userApplicationSchema = new Schema<IUserApplication>({
 
 });
 
-export const ApplicationUserModel = model<IUserApplication>("UserApplication", userApplicationSchema);
+export const applicationUserModel = model<IUserApplication>("UserApplication", userApplicationSchema);

@@ -22,4 +22,4 @@ const clientSchema = new Schema<IClient>({
 
 });
 
-export const ClientModel = model<IClient>("Client", clientSchema);
+export const clientModel = model<IClient>("Client", clientSchema);

@@ -29,4 +29,4 @@ const saleSchema = new Schema<ISale>({
 
 });
 
-export const SaleModel = model<ISale>("Sale", saleSchema);
+export const saleModel = model<ISale>("Sale", saleSchema);
