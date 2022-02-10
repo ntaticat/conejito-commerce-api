@@ -1,13 +1,5 @@
 import { Schema, model } from "mongoose";
-import { ICategory } from "./categorias.model";
-
-export interface IProduct {
-  name: string;
-  description: string;
-  stock: number;
-  state: boolean;
-  categories: ICategory[];
-}
+import { IProduct } from "../interfaces/productos.interfaces";
 
 const productSchema = new Schema<IProduct>({
   

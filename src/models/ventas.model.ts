@@ -1,17 +1,5 @@
 import { Schema, model } from "mongoose";
-import { ICategory } from "./categorias.model";
-import { IClient } from "./clientes.model";
-import { IPayment } from "./pagos.model";
-import { IProduct } from "./productos.model";
-
-export interface ISale {
-  date: Date;
-  total: number;
-  paid: boolean;
-  client: IClient;
-  products: IProduct[];
-  payments: IPayment[];
-}
+import { ISale } from "../interfaces/ventas.interfaces";
 
 const saleSchema = new Schema<ISale>({
   date: {

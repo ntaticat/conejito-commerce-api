@@ -1,18 +1,5 @@
 import { Schema, model } from "mongoose";
-import { ISale } from "./ventas.model";
-
-export interface IPayment {
-  amount: number;
-  date: Date;
-  type: string;
-  sale: ISale;
-}
-
-enum paymentTypes {
-  TOTAL_PAYMENT = "TOTAL_PAYMENT",
-  DEBT_PAYMENT = "DEBT_PAYMENT",
-  FINAL_PAYMENT = "FINAL_PAYMENT",
-}
+import { IPayment, paymentTypes } from "../interfaces/pagos.interfaces";
 
 const paymentSchema = new Schema<IPayment>({
   amount: {

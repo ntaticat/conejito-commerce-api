@@ -1,18 +1,5 @@
 import { Schema, model } from "mongoose";
-import { IProduct } from "./productos.model";
-
-export interface ICategory {
-  name: string;
-  description: string;
-  state: boolean;
-  categoryType: string;
-  products: IProduct[];
-}
-
-enum categoryTypes {
-  PRODUCT_CATEGORY = "PRODUCT_CATEGORY",
-  EASY_CATEGORY = "EASY_CATEGORY"
-}
+import { categoryTypes, ICategory } from "../interfaces/categorias.interfaces";
 
 const categorySchema = new Schema<ICategory>({
   

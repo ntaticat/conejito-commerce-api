@@ -1,12 +1,5 @@
 import { Schema, model } from "mongoose";
-import { ISale } from "./ventas.model";
-
-export interface IClient {
-  name: string;
-  info: string;
-  state: boolean;
-  sales: ISale[];
-}
+import { IClient } from "../interfaces/clientes.interfaces";
 
 const clientSchema = new Schema<IClient>({
   

@@ -1,19 +1,5 @@
 import { Schema, model } from "mongoose";
-
-export interface IUserApplication {
-  name: string;
-  email: string;
-  password: string;
-  image: string;
-  google: boolean;
-  role: string;
-  state: boolean;
-}
-
-enum userRoles {
-  ADMIN = "ADMIN",
-  SELLER = "SELLER"
-}
+import { IUserApplication, userRoles } from "../interfaces/usuarios.interfaces";
 
 const userApplicationSchema = new Schema<IUserApplication>({
   
