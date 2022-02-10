@@ -23,6 +23,21 @@ class CategoriasController {
     }
   }
 
+  async putCategoria(req: Request, res: Response) {
+    try {
+      const categoriaId: string = req.params.id; 
+      const categoria: ICategory = req.body.categoria;
+      const updateResult = await categoriasServices.updateCategoria(categoriaId, categoria);
+      res.status(200).json({
+        categoria: updateResult
+      });
+    } catch (error) {
+      res.status(400).json({
+        message: error
+      });
+    }
+  }
+
 }
 
 export default CategoriasController;
