@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.js",
+    "start": "node ./build/index.js",
     "dev:ts": "tsc --watch",
     "dev:js": "nodemon ./build/index.js",
-    "build": "tsc"
+    "build": "tsc",
+    "postinstall": "tsc",
+    "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
   "keywords": [],
   "author": "",
