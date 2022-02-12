@@ -9,7 +9,4 @@ export interface ICategory {
     products: IProduct[];
 }
 
-export enum categoryTypes {
-    PRODUCT_CATEGORY = "PRODUCT_CATEGORY",
-    EASY_CATEGORY = "EASY_CATEGORY"
-}
+export const categoryTypes = ["PRODUCT_CATEGORY", "EASY_CATEGORY"];

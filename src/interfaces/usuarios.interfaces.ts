@@ -8,7 +8,4 @@ export interface IUserApplication {
     state: boolean;
 }
 
-export enum userRoles {
-    ADMIN = "ADMIN",
-    SELLER = "SELLER"
-}
+export const userRoles = ["ADMIN", "SELLER"];
