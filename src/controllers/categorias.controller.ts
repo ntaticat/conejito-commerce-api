@@ -38,6 +38,49 @@ class CategoriasController {
     }
   }
 
+  async deleteCategoria(req: Request, res: Response) {
+    try {
+      const categoriaId: string = req.params.id; 
+      const deleteResult = await categoriasServices.deleteCategoria(categoriaId);
+      res.status(200).json({
+        categoria: deleteResult
+      });
+    } catch (error) {
+      res.status(400).json({
+        message: error
+      });
+    }
+  }
+
+  async getCategoria(req: Request, res: Response) {
+    try {
+      const categoriaId: string = req.params.id;
+      const dbCategoria = await categoriasServices.getById(categoriaId);
+      res.status(200).json({
+        categoria: dbCategoria
+      });
+    } catch (error) {
+      console.log("Error:", error);
+      res.status(400).json({
+        message: error
+      });
+    }
+  }
+
+  async getCategorias(req: Request, res: Response) {
+    try {
+      const dbCategorias = await categoriasServices.getAll();
+      res.status(200).json({
+        categorias: dbCategorias
+      });
+    } catch (error) {
+      console.log("Error:", error);
+      res.status(400).json({
+        message: error
+      });
+    }
+  }
+
 }
 
 export default CategoriasController;
