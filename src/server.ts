@@ -27,7 +27,7 @@ class Server {
   }
 
   private middlewares() {
-    this.app.use(cors());
+    this.app.use(cors({credentials: true, origin: true}));
     this.app.use(express.json());
   }
 
