@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import Server from "./server";
-dotenv.config().parsed;
+dotenv.config();
 
-const server = new Server();
-server.listen();
+export const server = new Server();
+export const listenServer = server.listen();

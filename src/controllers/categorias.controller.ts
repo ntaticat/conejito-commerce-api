@@ -10,7 +10,7 @@ class CategoriasController {
 
   async postCategoria(req: Request, res: Response) {
     try {
-      const categoria: ICategory = req.body.categoria
+      const categoria: ICategory = req.body.categoria;
       const dbCategoria = await categoriasServices.createCategoria(categoria);
       res.status(200).json({
         categoria: dbCategoria
@@ -25,7 +25,7 @@ class CategoriasController {
 
   async putCategoria(req: Request, res: Response) {
     try {
-      const categoriaId: string = req.params.id; 
+      const categoriaId: string = req.params.id;
       const categoria: ICategory = req.body.categoria;
       const updateResult = await categoriasServices.updateCategoria(categoriaId, categoria);
       res.status(200).json({
@@ -40,7 +40,7 @@ class CategoriasController {
 
   async deleteCategoria(req: Request, res: Response) {
     try {
-      const categoriaId: string = req.params.id; 
+      const categoriaId: string = req.params.id;
       const deleteResult = await categoriasServices.deleteCategoria(categoriaId);
       res.status(200).json({
         categoria: deleteResult
