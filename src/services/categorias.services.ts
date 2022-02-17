@@ -1,7 +1,8 @@
 import { ICategory } from "../interfaces/categorias.interfaces";
 import { categoryModel } from "../models/categorias.model";
+import { ICategoriasService } from "./services.interfaces";
 
-class CategoriasServices {
+class CategoriasServices implements ICategoriasService {
   constructor() { }
 
   async createCategoria(categoryData: ICategory) {
@@ -44,7 +45,7 @@ class CategoriasServices {
     }
   }
 
-  async getById(categoryId: string) {
+  async getCategoriaById(categoryId: string) {
     try {
       const dbCategory = await categoryModel.findById(categoryId);
 
@@ -59,7 +60,7 @@ class CategoriasServices {
     }
   }
 
-  async getAll() {
+  async getCategorias() {
     try {
       const dbCategories = await categoryModel.find();
       return dbCategories;

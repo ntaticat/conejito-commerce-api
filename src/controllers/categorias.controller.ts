@@ -55,7 +55,7 @@ class CategoriasController {
   async getCategoria(req: Request, res: Response) {
     try {
       const categoriaId: string = req.params.id;
-      const dbCategoria = await categoriasServices.getById(categoriaId);
+      const dbCategoria = await categoriasServices.getCategoriaById(categoriaId);
       res.status(200).json({
         categoria: dbCategoria
       });
@@ -69,7 +69,7 @@ class CategoriasController {
 
   async getCategorias(req: Request, res: Response) {
     try {
-      const dbCategorias = await categoriasServices.getAll();
+      const dbCategorias = await categoriasServices.getCategorias();
       res.status(200).json({
         categorias: dbCategorias
       });
