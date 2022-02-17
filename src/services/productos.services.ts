@@ -13,7 +13,7 @@ class ProductosServices implements IProductosService {
   }
 
   async updateProducto(productId: string, productInfo: IProduct): Promise<IProduct> {
-    const updatedProduct = await productModel.findByIdAndUpdate(productId, {...productInfo});
+    const updatedProduct = await productModel.findByIdAndUpdate(productId, {...productInfo}, { new: true });
     if (updatedProduct == undefined || updatedProduct == null) {
       throw new Error(`No se pudo actualizar el producto con id ${productId}`);
     }
