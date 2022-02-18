@@ -16,10 +16,23 @@ const productSchema = new Schema<IProduct>({
     min: [0, "No puede haber numeros negativos en el stock"],
     default: 0
   },
-  
   state: {
     type: Boolean,
     default: true
+  },
+  cost: {
+    type: Number,
+    min: [0, "No puede haber numeros negativos en el costo"],
+    default: 0
+  },
+  price: {
+    type: Number,
+    min: [0, "No puede haber numeros negativos en el precio"],
+    default: 0
+  },
+  img: {
+    type: String,
+    default: "/uploads/default.jpg"
   },
   categories: [{
     type: Schema.Types.ObjectId,

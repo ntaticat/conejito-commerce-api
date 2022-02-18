@@ -3,6 +3,7 @@ import cors from "cors";
 import dbConnection from "./database/database-config";
 import productosRoutes from "./routes/productos.routes";
 import categoriasRoutes from "./routes/categorias.routes";
+import uploadsRoutes from "./routes/uploads.routes";
 import mongoose from "mongoose";
 
 class Server {
@@ -13,6 +14,7 @@ class Server {
   apiPaths = {
     productos: "/api/productos",
     categorias: "/api/categorias",
+    uploads: "/api/uploads"
   };
 
   constructor() {
@@ -32,6 +34,7 @@ class Server {
   }
 
   private middlewares() {
+    this.app.use("/uploads", express.static("uploads"));
     this.app.use(cors({ credentials: true, origin: true }));
     this.app.use(express.json());
   }
@@ -39,6 +42,7 @@ class Server {
   private routes() {
     this.app.use(this.apiPaths.productos, productosRoutes);
     this.app.use(this.apiPaths.categorias, categoriasRoutes);
+    this.app.use(this.apiPaths.uploads, uploadsRoutes);
   }
 
   listen() {

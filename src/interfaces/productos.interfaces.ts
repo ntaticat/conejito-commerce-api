@@ -6,5 +6,8 @@ export interface IProduct {
     description: string;
     stock: number;
     state: boolean;
+    img: string;
+    cost: number;
+    price: number;
     categories: ICategory[];
 }
