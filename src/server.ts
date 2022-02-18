@@ -5,6 +5,7 @@ import productosRoutes from "./routes/productos.routes";
 import categoriasRoutes from "./routes/categorias.routes";
 import uploadsRoutes from "./routes/uploads.routes";
 import mongoose from "mongoose";
+import multer from "multer";
 
 class Server {
 
@@ -35,8 +36,10 @@ class Server {
 
   private middlewares() {
     this.app.use("/uploads", express.static("uploads"));
-    this.app.use(cors({ credentials: true, origin: true }));
+    this.app.use(multer().any());
+    this.app.use(express.urlencoded({extended: true}));
     this.app.use(express.json());
+    this.app.use(cors({ credentials: true, origin: true }));
   }
 
   private routes() {
