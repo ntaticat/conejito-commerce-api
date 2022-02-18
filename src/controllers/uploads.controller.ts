@@ -10,14 +10,16 @@ class UploadsController {
 
   async postImage(req: Request, res: Response) {
     try {
-      res.status(200).json({
-        imagenInfo: {...req.file}
-      });
+      const file = req.file;
+
+      if(!file) {
+        throw new Error("Hubo un error al obtener la info");
+      }
+
+      res.status(200).send(file);
     } catch (error) {
       console.log("Error:", error);
-      res.status(400).json({
-        message: error
-      });
+      res.status(400).send(error);
     }
   }
 
