@@ -10,7 +10,7 @@
     "test": "NODE_ENV=test jest --verbose --silent test/",
     "test:watch": "npm run test -- --watch",
     "build": "tsc",
-    "postinstall": "tsc",
+    "postinstall": "tsc && mkdir uploads",
     "deploy": "git push heroku main"
   },
   "keywords": [],

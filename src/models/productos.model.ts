@@ -32,7 +32,7 @@ const productSchema = new Schema<IProduct>({
   },
   img: {
     type: String,
-    default: "/uploads/default.jpg"
+    default: ""
   },
   categories: [{
     type: Schema.Types.ObjectId,
