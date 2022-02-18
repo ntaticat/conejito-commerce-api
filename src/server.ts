@@ -37,7 +37,14 @@ class Server {
   private middlewares() {
     this.app.use(express.urlencoded({extended: true}));
     this.app.use(express.json());
-    this.app.use(cors({ credentials: true, origin: true, allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept" }));
+    this.app.use(cors({
+      origin: "*",
+      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+      preflightContinue: false, 
+      credentials: false,
+      optionsSuccessStatus: 204,
+      allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept"
+    }));
     this.app.use("/uploads", express.static("uploads"));
   }
 
