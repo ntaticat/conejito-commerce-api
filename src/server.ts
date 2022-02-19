@@ -41,7 +41,7 @@ class Server {
       origin: "*",
       methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
       preflightContinue: false, 
-      credentials: false,
+      credentials: true,
       optionsSuccessStatus: 204,
       allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept"
     }));
