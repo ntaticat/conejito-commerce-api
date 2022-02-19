@@ -35,17 +35,10 @@ class Server {
   }
 
   private middlewares() {
+    this.app.use(cors({ origin: "http://localhost:3000", credentials: false }));
+    this.app.use("/uploads", express.static("uploads"));
     this.app.use(express.urlencoded({extended: true}));
     this.app.use(express.json());
-    this.app.use(cors({
-      origin: "*",
-      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-      preflightContinue: false, 
-      credentials: true,
-      optionsSuccessStatus: 204,
-      allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept"
-    }));
-    this.app.use("/uploads", express.static("uploads"));
   }
 
   private routes() {
