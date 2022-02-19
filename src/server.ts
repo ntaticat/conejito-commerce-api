@@ -35,10 +35,10 @@ class Server {
   }
 
   private middlewares() {
-    this.app.use(cors({ origin: "http://localhost:3000", credentials: false }));
-    this.app.use("/uploads", express.static("uploads"));
-    this.app.use(express.urlencoded({extended: true}));
     this.app.use(express.json());
+    this.app.use(express.urlencoded({extended: true}));
+    this.app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+    this.app.use("/uploads", express.static("uploads"));
   }
 
   private routes() {

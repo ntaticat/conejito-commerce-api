@@ -11,7 +11,7 @@ class UploadsController {
   async postImage(req: Request, res: Response) {
     try {
       res.status(200).json({
-        path: req.file?.path
+        imagenInfo: req.file
       });
     } catch (error) {
       console.log("Error:", error);
