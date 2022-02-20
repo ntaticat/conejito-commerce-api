@@ -1,5 +1,6 @@
 import { IClient } from "./clientes.interfaces";
 import { IPayment } from "./pagos.interfaces";
+import { ISoldProduct } from "./productos-vendidos.interfaces";
 import { IProduct } from "./productos.interfaces";
 
 export interface ISale {
@@ -7,6 +8,6 @@ export interface ISale {
     total: number;
     paid: boolean;
     client: IClient;
-    products: IProduct[];
+    soldProducts: ISoldProduct[];
     payments: IPayment[];
 }

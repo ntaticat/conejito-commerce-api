@@ -18,9 +18,9 @@ const saleSchema = new Schema<ISale>({
     type: Schema.Types.ObjectId,
     ref: "Client"
   },
-  products: [{
+  soldProducts: [{
     type: Schema.Types.ObjectId,
-    ref: "Product"
+    ref: "SoldProduct"
   }],
   payments: [{
     type: Schema.Types.ObjectId,

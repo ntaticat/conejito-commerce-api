@@ -3,6 +3,7 @@ import cors from "cors";
 import dbConnection from "./database/database-config";
 import productosRoutes from "./routes/productos.routes";
 import categoriasRoutes from "./routes/categorias.routes";
+import ventasRoutes from "./routes/ventas.routes";
 import uploadsRoutes from "./routes/uploads.routes";
 import mongoose from "mongoose";
 import multer from "multer";
@@ -15,7 +16,8 @@ class Server {
   apiPaths = {
     productos: "/api/productos",
     categorias: "/api/categorias",
-    uploads: "/api/uploads"
+    uploads: "/api/uploads",
+    ventas: "/api/ventas",
   };
 
   constructor() {
@@ -45,6 +47,7 @@ class Server {
     this.app.use(this.apiPaths.productos, productosRoutes);
     this.app.use(this.apiPaths.categorias, categoriasRoutes);
     this.app.use(this.apiPaths.uploads, uploadsRoutes);
+    this.app.use(this.apiPaths.ventas, ventasRoutes);
   }
 
   listen() {
