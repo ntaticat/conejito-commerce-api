@@ -20,23 +20,24 @@ const productSchema = new Schema<IProduct>({
     type: Boolean,
     default: true
   },
-  cost: {
-    type: Number,
-    min: [0, "No puede haber numeros negativos en el costo"],
-    default: 0
-  },
-  price: {
-    type: Number,
-    min: [0, "No puede haber numeros negativos en el precio"],
-    default: 0
-  },
   img: {
     type: String,
     default: ""
   },
+  
   categories: [{
     type: Schema.Types.ObjectId,
     ref: "Category"
+  }],
+
+  currentPrice: {
+    type: Schema.Types.ObjectId,
+    ref: "Price"
+  },
+
+  prices: [{
+    type: Schema.Types.ObjectId,
+    ref: "Price"
   }]
 
 });

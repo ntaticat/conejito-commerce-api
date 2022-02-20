@@ -11,7 +11,8 @@
     "test:watch": "npm run test -- --watch",
     "build": "tsc",
     "postinstall": "tsc && mkdir uploads",
-    "deploy": "git push heroku main"
+    "deploy": "git push heroku main",
+    "local": "npm run build && npm start"
   },
   "keywords": [],
   "author": "",

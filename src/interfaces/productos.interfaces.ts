@@ -1,4 +1,5 @@
 import { ICategory } from "./categorias.interfaces";
+import { IPrice } from "./precios.interfaces";
 
 export interface IProduct {
     _id?: string;
@@ -7,7 +8,7 @@ export interface IProduct {
     stock: number;
     state: boolean;
     img: string;
-    cost: number;
-    price: number;
     categories: ICategory[];
+    currentPrice: IPrice;
+    prices: IPrice[];
 }
