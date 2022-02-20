@@ -15,10 +15,6 @@ const paymentSchema = new Schema<IPayment>({
     type: String,
     required: [true, "El tipo es obligatorio"],
     enum: paymentTypes
-  },
-  sale: {
-    type: Schema.Types.ObjectId,
-    ref: "Sale"
   }
 });
 
