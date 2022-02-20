@@ -84,6 +84,23 @@ class ProductosController {
     }
   }
 
+  async putProductoCategorias(req: Request, res: Response) {
+    try {
+      const productoId: string = req.params.productoId;
+      const producto: IProduct = req.body.producto;
+
+      const dbProducto = await productosServices.updateCategoriasOfProducto(productoId, producto);
+      res.status(200).json({
+        producto: dbProducto
+      });
+    } catch (error) {
+      console.log("Error al actualizar categorias de producto:", error);
+      res.status(400).json({
+        error
+      });
+    }
+  }
+
   async postProductoPrecio(req: Request, res: Response) {
     try {
       const productoId: string = req.params.productoId;

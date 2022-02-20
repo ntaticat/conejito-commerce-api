@@ -47,7 +47,7 @@ class CategoriasServices implements ICategoriasService {
 
   async getCategoriaById(categoryId: string) {
     try {
-      const dbCategory = await categoryModel.findById(categoryId);
+      const dbCategory = await categoryModel.findById(categoryId).populate("products").exec();
 
       if (dbCategory == undefined || dbCategory == null) {
         throw new Error(`No se pudo obtener la categoria con id ${categoryId}`);
