@@ -15,7 +15,18 @@ class ProductosServices implements IProductosService {
   async createProducto(productInfo: IProduct): Promise<IProduct> {
     const newProduct = new productModel({ ...productInfo });
     const dbProduct = await newProduct.save();
-    return dbProduct;
+
+    const dbPrice = await preciosService.registerPrice({
+      amount: 0,
+      cost: 0
+    });
+
+    dbProduct.prices.push(dbPrice);
+    dbProduct.currentPrice = dbPrice;
+
+    const savedProduct = await dbProduct.save();
+
+    return savedProduct;
   }
 
   async updateProducto(productId: string, productInfo: IProduct): Promise<IProduct> {
