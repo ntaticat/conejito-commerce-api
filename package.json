@@ -8,7 +8,7 @@
     "dev:ts": "NODE_ENV=development tsc --watch",
     "dev:js": "NODE_ENV=development nodemon ./build/index.js",
     "test": "NODE_ENV=test jest --verbose --silent test/",
-    "test:watch": "npm run test -- --watch",
+    "test:watch": "NODE_ENV=test npm run test -- --watch",
     "build": "tsc",
     "postinstall": "tsc && mkdir uploads",
     "deploy": "git push heroku main",
